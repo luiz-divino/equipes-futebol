@@ -1,0 +1,9 @@
+# Ignorar a pasta de dependências do Node.js
+# Esta pasta pode conter milhares de arquivos e é sempre recriada localmente
+# com o comando "npm install". NUNCA a envie para o repositório.
+node_modules
+
+# Ignorar o arquivo de variáveis de ambiente
+# ESTA É A LINHA MAIS IMPORTANTE PARA A SEGURANÇA!
+# Ela contém suas chaves secretas de API, senhas de banco de dados, etc.
+.env

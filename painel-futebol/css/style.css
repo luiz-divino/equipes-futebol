@@ -1,0 +1,98 @@
+/* Estilo geral */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: #1d3557;
+}
+
+/* Container principal */
+main {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Seção de Busca */
+.busca-container {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.busca-box {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+#input-time {
+    width: 60%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+#btn-buscar {
+    padding: 10px 20px;
+    border: none;
+    background-color: #398ae6;
+    color: white;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#btn-buscar:hover {
+    background-color: #2b7ec1;
+}
+
+/* Seção de Resultados */
+#info-time {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#info-time img {
+    max-width: 100px;
+}
+
+#info-time h2 {
+    margin: 10px 0 0 0;
+}
+
+#jogos {
+    display: grid;
+    text-align: center;
+    margin-top: 70px;
+    grid-template-columns: 1fr; /* Apenas uma coluna em telas pequenas */
+}
+
+
+
+.card-jogo {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.card-jogo h3 {
+    margin-top: 0;
+    color: #457b9d;
+}

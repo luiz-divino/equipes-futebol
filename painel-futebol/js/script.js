@@ -1,9 +1,8 @@
-
 const inputTime = document.getElementById('input-time');
 const btnBuscar = document.getElementById('btn-buscar');
 const infoTimeContainer = document.getElementById('info-time');
 const jogosContainer = document.getElementById('jogos');
-const noticiasContainer = document.querySelector('.noticias');
+const noticiasContainer = document.querySelector('.offcanvas-body');
 const btnNoticias = document.querySelector('.btn');
 const offcanvasElement = document.querySelector('.offcanvas');
 
@@ -17,7 +16,7 @@ inputTime.addEventListener('keypress', (event) => {
     }
 });
 
-    async function buscarInformacoesTime() {
+async function buscarInformacoesTime() {
     const nomeTime = inputTime.value;
 
     if (!nomeTime) {
@@ -41,18 +40,24 @@ inputTime.addEventListener('keypress', (event) => {
         console.log(dataNoticias);
 
 
-        // Exibir as notícias no container  
-        noticiasContainer.innerHTML = '<h3>Notícias Recentes:</h3>';
 
-        if (dataTime.teams) {
+        if (dataNoticias) {
             btnNoticias.classList.remove('d-none');
-            offcanvasElement.classList.remove('d-none')
-            noticiasContainer.innerHTML += dataNoticias.slice(3, 10).map(noticia => `
-                <div class="card-noticia">
-                    <h4><a href="${noticia.url}" target="_blank">${noticia.title}</a></h4>
-                    <p>${noticia.description || ''}</p>
-                </div>
-            `).join('');
+            offcanvasElement.classList.remove('d-none');
+            const noticiasHTML = dataNoticias.slice(0, 10).map(noticia => `
+                    <div class="card-noticia">
+                    <h4><a href="${noticia.url || '#'}">${noticia.title || 'Notícia sem título'}</a></h4>
+                    <p>${noticia.description || 'Clique para ler mais.'}</p>
+                </div>`).join('');
+
+
+            noticiasContainer.innerHTML = `<h3>Notícias Recentes:</h3>${noticiasHTML}`;
+
+        } else {
+            btnNoticias.classList.add('d-none');
+            offcanvasElement.classList.add('d-none');
+            noticiasContainer.innerHTML = '';
+            console.error('Nenhuma notícia encontrada ou a resposta não foi um array.', dataNoticias);
         }
 
         // Verifica se o time foi encontrado

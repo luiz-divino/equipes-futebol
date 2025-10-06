@@ -1,8 +1,19 @@
-/* Estilo geral */
+:root {
+  --cor-fundo: #121212;
+  --cor-card: #1e1e1e;
+  --cor-destaque: #1DB954; /* Verde Vibrante */
+  --cor-texto-primario: #FFFFFF;
+  --cor-texto-secundario: #b3b3b3;
+  --fonte-titulo: 'Montserrat', sans-serif;
+  --fonte-corpo: 'Lato', sans-serif;
+}
+
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f2f5;
-    color: #333;
+    font-family: var(--fonte-corpo);
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto-primario);
+    background-image: radial-gradient(circle, #2a2a2a 1px, transparent 1px);
     margin: 0;
     padding: 20px;
 }
@@ -13,7 +24,12 @@ header {
 }
 
 h1 {
-    color: #1d3557;
+    font-family: var(--fonte-titulo);
+    color: var(--cor-destaque);
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 2px;
+    
 }
 
 /* Container principal */
@@ -23,13 +39,20 @@ main {
 }
 
 /* Seção de Busca */
-.busca-container {
-    background-color: #fff;
+.busca-container, .card-jogo {
+    background-color: var(--cor-card);
+    border: 1px solid #333;
     padding: 25px;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
     text-align: center;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card-jogo:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .busca-box {
@@ -43,32 +66,44 @@ main {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    font-size: 16px;
+    font-size: 20px;
 }
 
-#btn-buscar {
+#btn-ver-noticias {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+#btn-buscar , .btn{
     padding: 10px 20px;
     border: none;
-    background-color: #398ae6;
-    color: white;
+    background-color: var(--cor-destaque);
+    color: #ffffff;
+    font-family: var(--fonte-titulo);
+    font-weight: 700;
+    text-transform: uppercase;
     font-size: 16px;
-    border-radius: 4px;
+    padding: 12px 25px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
-#btn-buscar:hover {
-    background-color: #2b7ec1;
+#btn-buscar:hover, .btn:hover {
+    background-color: #189945;
+    transform: scale(1.05);
 }
 
 /* Seção de Resultados */
 #info-time {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 #info-time img {
-    max-width: 100px;
+    max-width: 120px;
 }
 
 #info-time h2 {
@@ -82,17 +117,12 @@ main {
     grid-template-columns: 1fr; /* Apenas uma coluna em telas pequenas */
 }
 
-
-
-.card-jogo {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
 .card-jogo h3 {
     margin-top: 0;
-    color: #457b9d;
+    color: var(--cor-destaque);
+}
+
+.card-jogo p {
+    margin: 5px 0;
+    color: var(--cor-texto-secundario);
 }
